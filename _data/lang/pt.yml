@@ -15,7 +15,7 @@ lng:
 
 date:
   # if %b is used in the long format, it will be replaced with the corresponding item in 'months' list below.
-  long: "%-d %b, %Y"
+  long: "%d/%m/%Y"
   day: "%d"
   year: "%Y"
   # months itself also used in Archive page.
