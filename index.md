@@ -1,7 +1,7 @@
 ---
-layout: home
+layout: post-list
 # multilingual page pair id, this must pair with translations of this page. (This name must be unique)
-lng_pair: id_home
+lng_pair: id_post_list
 
 # image for page specific usage
 img: ":home-heading.jpg"
