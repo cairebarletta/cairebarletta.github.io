@@ -100,7 +100,7 @@ bizdays::bizdays.options$set(default.calendar = "Brazil/ANBIMA")
 
 {% endhighlight %}
 
-Para a construção do nosso problema, usaremos como base um fluxo de caixa fictício como exemplo, sendo possível o download do arquivo em `.xlsx` [aqui](https://github.com/cairebarletta/cairebarletta.github.io/tree/main/assets/example_cashflow.xlsx){:target="_blank"}. O arquivo conta com três colunas: `date`, referente a data de pagamento do fluxo; `future_value`, referente ao montante pago na data de referência; e `event`, explicitando se é o pagamento de um cupom ou o pagamento de uma amortização.
+Para a construção do nosso problema, usaremos como base um fluxo de caixa fictício como exemplo, sendo possível o download do arquivo em `.xlsx` [aqui](https://cairebarletta.github.io/tree/main/assets/example_cashflow.xlsx){:target="_blank"}. O arquivo conta com três colunas: `date`, referente a data de pagamento do fluxo; `future_value`, referente ao montante pago na data de referência; e `event`, explicitando se é o pagamento de um cupom ou o pagamento de uma amortização.
 
 Para ler o arquivo dentro do `R`, usaremos a função `read_excel()` do pacote `readxl`, que carregamos ao chamar o universo `tidyverse`, como segue:
 
