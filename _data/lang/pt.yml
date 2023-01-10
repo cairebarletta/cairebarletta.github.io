@@ -6,7 +6,7 @@ lng:
   # For html tags, you can enable or disable using html_lng_with_country_code defined in _data/conf/main.yml
   # based on ISO_3166-1 https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
   country: BR
-  switch_title: Pt
+  switch_title: PT
   offer:
     title: Idioma
     msg_page: Veja esta página em português.
@@ -19,7 +19,7 @@ date:
   day: "%d"
   year: "%Y"
   # months itself also used in Archive page.
-  months: [Jan, Fev, Mar, Abr, Mai, Jun, Jul, Ago, Set, Out, Nov, Dez]
+  months: [Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro]
 
 not_found:
   header: Página não encontrada
@@ -60,8 +60,8 @@ not-found:
 # for post layout
 post:
   read_time:
-    unit: " min"
-    text: " leitura"
+    unit: " minutos"
+    text: " de leitura"
     # c for char w for word
     word_char: w
     # char or words per minute
