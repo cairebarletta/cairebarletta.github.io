@@ -50,6 +50,8 @@ This is an example page to display markdown related styles for Mr. Green Jekyll 
 
 # Heading 1
 
+$$D_{Macaulay} = \frac{\sum_{t=1}^{N}{C_{t} t}}{\sum_{t=1}^{N}{C_{t}}}$$
+
 ## Heading 2
 
 ### Heading 3
