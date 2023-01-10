@@ -18,6 +18,8 @@ tags: [financial-modeling, r-programming]
 # publish date
 date: 2022-12-26
 
+mathjax: true
+
 # seo
 # if not specified, date will be used.
 #meta_modify_date: 2022-02-10 08:11:06 +0900
