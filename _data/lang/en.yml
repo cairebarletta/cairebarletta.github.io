@@ -6,7 +6,7 @@ lng:
   # For html tags, you can enable or disable using html_lng_with_country_code defined in _data/conf/main.yml
   # based on ISO_3166-1 https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
   country: US
-  switch_title: En
+  switch_title: EN
   offer:
     title: Language
     msg_page: View this page in English.
