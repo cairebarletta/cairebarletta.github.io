@@ -56,6 +56,9 @@ markdown: kramdown
 kramdown:
   # This is default for GitHub Pages sites and cannot be changed.
   syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    # Use existing pygments syntax highlighting css
+    css_class: 'highlight'
 
 ###########################################################
 # Plugins (Plugins supported by GitHub Pages https://pages.github.com/versions/)
