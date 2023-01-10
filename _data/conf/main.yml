@@ -181,14 +181,14 @@ side_nav_close_limit: 767px
 # button order is linked to key(layout name)
 # keys need to match with "_layouts"
 side_and_top_nav_buttons:
-  #- home:
-  #  icon: "fa fa-home"
+  - home:
+    icon: "fa fa-home"
   - post-list:
     icon: "fa fa-pencil-square-o"
   - archives:
     icon: "fa fa-archive"
-  #- projects:
-  #  icon: "fa fa-cog"
+  - projects:
+    icon: "fa fa-cog"
   - links:
     icon: "fa fa-link"
   - about:
