@@ -14,7 +14,7 @@ about:
   # make sure email address is defined in _data/owner/[language].yml
   show_email: false
   # make sure contacts is defined in _data/owner/[language].yml
-  show_contacts: true
+  show_contacts: false
   # to disable icon, comment below
   #sub_title_icon: "fa fa-star"
   # to disable icon, comment below
