@@ -19,7 +19,7 @@ date:
   day: "%d"
   year: "%Y"
   # months itself also used in Archive page.
-  months: [Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+  months: [January, February, March, April, May, June, July, August, September, October, November, December]
 
 not_found:
   header: Page not found
@@ -60,7 +60,7 @@ not-found:
 # for post layout
 post:
   read_time:
-    unit: " min"
+    unit: " minutes"
     text: " read"
     # c for char w for word
     word_char: w
