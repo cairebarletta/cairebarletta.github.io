@@ -253,7 +253,7 @@ copyright_add_text_to_end: false
 
 # this will add creative commons license. check _data/owner/[language].yml for license type.
 creative_commons:
-  enable: true
+  enable: false
   tooltip: true
   add_all_icons: true
   license_url: "https://creativecommons.org/licenses/$license/4.0/deed.$lng"
@@ -320,7 +320,7 @@ google:
 # make sure google_analytics_id is set in _data/owner/[language].yml
 # make sure your environment does not match with google.analytics.ignore
 cookie_consent:
-  enable: true
+  enable: false
   # if this is true, the consent box will be hidden even if the user does not change the switch position.
   hide_consent_bar_with_save_button: true
   gtag_default_config:
