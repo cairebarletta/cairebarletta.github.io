@@ -51,10 +51,10 @@ defaults:
 # Configuring Jekyll in your GitHub Pages site (https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll)
 ###########################################################
 # This is default for GitHub Pages sites and cannot be changed.
-highlighter: rouge
-markdown: kramdown
 kramdown:
-  # This is default for GitHub Pages sites and cannot be changed.
+  # Use GitHub flavored markdown, including triple backtick fenced code blocks
+  input: GFM
+  # Jekyll 3 and GitHub Pages now support rouge for syntax highlighting
   syntax_highlighter: rouge
   syntax_highlighter_opts:
     # Use existing pygments syntax highlighting css
