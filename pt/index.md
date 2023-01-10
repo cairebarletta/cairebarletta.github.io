@@ -34,7 +34,7 @@ img: ":home-heading.jpg"
 #search_engine_exclude: true
 # to disable this page, simply set published: false or delete this file
 # don't forget that this is root index.html. If you disable this, there will be no index.html page to open
-#published: false
+published: false
 ---
 
 {%- comment -%} Please delete below and place your page content here {%- endcomment -%}
