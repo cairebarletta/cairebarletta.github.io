@@ -106,8 +106,8 @@ post:
 
 # for post-list layout
 post-list:
-  title: Blog
-  button_name: Blog
+  title: BLOG
+  button_name: BLOG
   upside_down_tabs:
     tab:
       all: All
@@ -137,27 +137,27 @@ home:
 
 # for archives layout
 archives:
-  title: Archive
-  button_name: Archive
-  page_header: Archive
+  title: ARCHIVE
+  button_name: ARCHIVE
+  page_header: ARCHIVE
 
 # for about layout
 about:
-  title: About
-  button_name: About
+  title: ABOUT
+  button_name: ABOUT
   email_title: email
 
 # for links layout
 links:
-  title: Links
-  button_name: Links
+  title: LINKS
+  button_name: LINKS
   link_text: Web site
   info_text: Info
 
 # for projects layout
 projects:
-  title: Projects
-  button_name: Projects
+  title: PROJECTS
+  button_name: PROJECTS
   read_more_text: Read more
   read_less_text: Read less
 
