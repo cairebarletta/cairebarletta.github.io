@@ -25,7 +25,7 @@ language_switch_lang_list: [en, ja, pt]
 
 # if the opened page is not in the user's language list,
 # suggest language(s) matching with the one(s) in browser language list and user language list.
-language_translation_offer_box: true
+language_translation_offer_box: false
 
 # Disable 3rd party translation suggestion for pages with translation.
 language_translation_offer_disable_ext_translation: true
@@ -119,7 +119,7 @@ color_scheme_dark: true
 # this sets default color scheme to dark. (color_scheme_dark must be enabled)
 # page start will be dark color scheme. You can change color scheme using switches
 # this feature doesn't need switches.
-color_scheme_default_dark: false
+color_scheme_default_dark: true
 
 # default color will change based on browser dark color scheme (color_scheme_default_dark should be disabled.)
 # you don't need to enable this if any switch is enabled.
@@ -181,14 +181,14 @@ side_nav_close_limit: 767px
 # button order is linked to key(layout name)
 # keys need to match with "_layouts"
 side_and_top_nav_buttons:
-  - home:
-    icon: "fa fa-home"
+  #- home:
+  #  icon: "fa fa-home"
   - post-list:
     icon: "fa fa-pencil-square-o"
   - archives:
     icon: "fa fa-archive"
-  - projects:
-    icon: "fa fa-cog"
+  #- projects:
+  #  icon: "fa fa-cog"
   - links:
     icon: "fa fa-link"
   - about:
