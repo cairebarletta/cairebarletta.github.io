@@ -65,7 +65,7 @@ post:
     # c for char w for word
     word_char: w
     # char or words per minute
-    per_minute: 100
+    per_minute: 200
   pager_buttons:
     older_post: "← Posts mais antigos"
     newer_post: "Posts mais recentes →"
@@ -106,12 +106,12 @@ post:
 
 # for post-list layout
 post-list:
-  title: Blog
-  button_name: Blog
+  title: BLOG
+  button_name: BLOG
   upside_down_tabs:
     tab:
       all: Tudo
-      categories: Categoria
+      categories: Categorias
       tags: Marcador
       years: Ano
       clear: Limpar
@@ -137,27 +137,27 @@ home:
 
 # for archives layout
 archives:
-  title: Arquivo
-  button_name: Arquivo
-  page_header: Arquivo
+  title: ARQUIVO
+  button_name: ARQUIVO
+  page_header: ARQUIVO
 
 # for about layout
 about:
-  title: Sobre
-  button_name: Sobre
+  title: SOBRE
+  button_name: SOBRE
   email_title: Email
 
 # for links layout
 links:
-  title: Links
-  button_name: Links
+  title: LINKS
+  button_name: LINKS
   link_text: Web site
   info_text: Info
 
 # for projects layout
 projects:
-  title: Projetos
-  button_name: Projetos
+  title: PROJETOS
+  button_name: PROJETOS
   read_more_text: Leia mais
   read_less_text: Leia menos
 
