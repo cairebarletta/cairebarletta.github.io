@@ -1,6 +1,6 @@
 ---
 # multilingual page pair id, this must pair with translations of this page. (This name must be unique)
-lng_pair: id_Examples
+lng_pair: id_durations
 title: Criando uma função em R para calcular a Duration de Macaulay e a Duration Modificada
 
 # post specific
