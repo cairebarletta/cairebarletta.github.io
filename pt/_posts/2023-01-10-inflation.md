@@ -1,6 +1,6 @@
 ---
 # multilingual page pair id, this must pair with translations of this page. (This name must be unique)
-lng_pair: id_core_inflation
+lng_pair: id_inflation
 title: Criando uma função em R para obter dados de inflação, núcleos de inflação e índice de difusão
 
 # post specific
