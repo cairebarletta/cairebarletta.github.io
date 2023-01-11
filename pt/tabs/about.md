@@ -44,12 +44,12 @@ Depois de cinco anos (aos 22, minha idade atual), finalizei meu bacharel em Ciê
 
 Meus planos englobam escrever sobre projetos de finanças pessoais que faço, tópicos de macroeconomia aplicada que eu gosto e problemas de modelagem financeira que me deparei durante minha jornada de trabalho.
 
-Você pode acessar meu CV [aqui]({{ site.url }}/assets/pdf_and_xlsx/CV_Cairê_Britto_Barletta.pdf){:target="_blank"}.
+Você consegue acessar meu CV clicando [aqui]({{ site.url }}/assets/pdf_and_xlsx/CV_Cairê_Britto_Barletta.pdf){:target="_blank"}.
 
 # Algumas coisas que fiz
 
 - Minha [monografia de graduação]({{ site.url }}/assets/pdf_and_xlsx/TCC_Cairê_Britto_Barletta.pdf){:target="_blank"}, Mensurando a Comunicação do Banco Central do Brasil: Uma Análise de Sentimentos das Atas do Copom e Impacto em Variáveis Macroeconômicas;
 - Um [Desafio de Ciências de Dados]({{ site.url }}/assets/pdf_and_xlsx/analisemacro_data_science_challenge_with_R.pdf){:target="_blank"} da empresa _Análise Macro_ que ganhei em conjunto com outra pessoa (havendo competidores de todo Brasil); 
 - Um [artigo de modelos de volatilidade VaR ARMA-GARCH e VaR Constante]({{ site.url }}/assets/pdf_and_xlsx/var_garch_model_with_R.pdf){:target="_blank"} que fiz quando fazia parte da Liga Acadêmica de Mercado Financeiro - Clube de Finanças, que também pode ser encontrado [aqui](http://clubedefinancas.com.br/materias/econometria-r-var-delta-normal-var-garch){:target="_blank"};
-- Um [Artigo Científico]({{ site.url }}/assets/pdf_and_xlsx/semead_article_labges.pdf){:target="_blank"} aceito e apresentado na USPaccepted and presented at USP, que também pode ser encontrado [aqui](https://www.researchgate.net/publication/342424971_POTENCIALIDADES_PARA_A_FORMACAO_DE_ORGANIZACOES_VIRTUAIS_POR_MEIO_DE_COOPERACOES_INTERORGANIZACIONAIS){:target="_blank"};
+- Um [Artigo Científico]({{ site.url }}/assets/pdf_and_xlsx/semead_article_labges.pdf){:target="_blank"} aceito e apresentado na USP, que também pode ser encontrado [aqui](https://www.researchgate.net/publication/342424971_POTENCIALIDADES_PARA_A_FORMACAO_DE_ORGANIZACOES_VIRTUAIS_POR_MEIO_DE_COOPERACOES_INTERORGANIZACIONAIS){:target="_blank"};
 - Um [trabalho]({{ site.url }}/assets/pdf_and_xlsx/monetary_economics_work_with_R.pdf){:target="_blank"} que fiz durante a matéria de Economia Monetária na universidade.
