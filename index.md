@@ -4,7 +4,7 @@ layout: post-list
 lng_pair: id_post-list
 
 # image for page specific usage
-img: ":home-heading.jpg"
+#img: ":home-heading.jpg"
 # publish date (used for seo)
 # if not specified, site.time will be used.
 #date: 2022-03-03 12:32:00 +0000
