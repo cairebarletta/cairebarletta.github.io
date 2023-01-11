@@ -84,11 +84,9 @@ Primeiramente, devemos carregar os pacotes que iremos utilizar na elaboração d
 Para contornar essa questão, utilizaremos o pacote `pacman` e com uma simples condição lógica, de forma agregada (ao invés de um por um, como seria se fizéssemos o passo anterior), checaremos se os pacotes estão instalados – caso estiverem, os carregaremos, caso contrário, os instalaremos e depois, os carregamos, como segue:
 
 {% highlight R %}
-
 #loading packages used
 if (!require(pacman)) install.packages(pacman)
 pacman::p_load(tidyverse, bizdays)
-
 {% endhighlight %}
 
 Após estarmos com os pacotes nos quais trabalharemos em cima, carregados, iremos definir como padrão o calendário de dias úteis (que desconsidera fins de semana e feriados) disponibilizado pela [Anbima](https://www.anbima.com.br/feriados/feriados.asp){:target="_blank"}.
