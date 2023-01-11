@@ -11,7 +11,7 @@ category: financial-markets
 # multiple tag entries are possible
 tags: [financial-modeling, r-programming]
 # thumbnail image for post
-#img: ":post_pic1.jpg"
+img: ":duration_post_thumb.PNG"
 # disable comments on this page
 #comments_disable: true
 
