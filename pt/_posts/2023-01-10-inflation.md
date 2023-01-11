@@ -109,28 +109,24 @@ Após a exploração de alguns conceitos que tangem o IPCA, núcleos de inflaç�
 
 Primeiramente, iremos carregar os pacotes que iremos utilizar com a ajuda do pacote `pacman` (exploro mais sobre esse ponto no post [Criando uma função em R para calcular a Duration de Macaulay e a Duration Modificada]({% post_url /pt/_posts/2022-12-26-durations %}){:target="_blank"}):
 
-{% highlight R %}
-
+~~~r
 #loading packages used
 if (!require(pacman)) install.packages(pacman)
 pacman::p_load(tidyverse, janitor, sidrar, rbcb)
-
-{% endhighlight %}
+~~~
 
 ### Dados do SIDRA - IBGE
 
 Criaremos uma variável de data inicial da série, `initial_date` e lhe atribuíremos um valor arbitrário, e após isso, com o uso da função `get_sidra()` do pacote `sidrar`, iremos obter a série histórica do IPCA:
 
-{% highlight R %}
-
+~~~
 #initial date input
 initial_date <- "2011-01-01"
 
 ipca_monthly <- sidrar::get_sidra(
   api = "/t/1737/n1/all/v/2266/p/all/d/v2266%2013"
   )
-
-{% endhighlight %}
+~~~
 
 Mas como saber o que colocar no argumento `api` dessa função? Ao acessar o SIDRA, selecione a coluna do IPCA (1) e depois clique em "Relação de tabelas da pesquisa" (2):
 
@@ -163,8 +159,7 @@ Com o uso do da função `mutate()`, do pacote `dplyr`, iremos criar duas coluna
 
 $$\text{ipca} = \left( \frac{\text{Valor}_{t}}{\text{Valor}_{t - 1}} - 1 \right) \cdot 100$$
 
-{% highlight R %}
-
+~~~r
 #ipca monthly
 ipca_monthly <- sidrar::get_sidra(
   api = "/t/1737/n1/all/v/2266/p/all/d/v2266%2013"
@@ -175,8 +170,7 @@ ipca_monthly <- sidrar::get_sidra(
   ) |>
   dplyr::filter(date >= initial_date) |>
   dplyr::select(date, ipca)
-
-{% endhighlight %}
+~~~
 
 Criada nossas novas colunas, com a função `filter()`, selecionamos a data inicial da nossa série, baseada no valor atribuído à variável `initial_date`; e com a função `select()`, iremos manter somente as colunas das variáveis que criamos, nos retornando um `data.frame` com os dados tratados:
 
@@ -184,8 +178,7 @@ Criada nossas novas colunas, com a função `filter()`, selecionamos a data inic
 
 Muito melhor, não é mesmo? Iremos fazer o mesmo processo para captura do `ipca15`, que a única diferença em relação ao IPCA está apenas no período de coleta, que abrange, em geral, do dia 16 do mês anterior ao dia 15 do mês de referência, funcionando assim como uma prévia do IPCA.
 
-{% highlight R %}
-
+~~~r
 #ipca15 monthly
 ipca15_monthly <- sidrar::get_sidra(
   api = "/t/3065/n1/all/v/1117/p/all/d/v1117%2013"
@@ -196,13 +189,11 @@ ipca15_monthly <- sidrar::get_sidra(
   ) |>
   dplyr::filter(date >= initial_date) |>
   dplyr::select(date, ipca15)
-
-{% endhighlight %}
+~~~
 
 Os próximos dados que iremos obter são referentes às **variações mensais** dos 9 grupos do IPCA. Para obtenção do argumento `api`, utilizamos o mesmo procedimento explicitado anteriormente, acessando o SIDRA. Além disso, também criaremos a coluna `date` com a função `parse_date()`, selecionando ela, a coluna `Geral, grupo, subgrupo, item e subitem` (renomeada para `variable`) e a coluna `Valor` (renomeada para `value`):
 
-{% highlight R %}
-
+~~~r
 ipca_groups_variation <- sidrar::get_sidra(
   api = "/t/7060/n1/all/v/63/p/all/c315/7170,7445,7486,7558,7625,7660,7712,7766,7786/d/v63%202"
   ) |>
@@ -214,8 +205,7 @@ ipca_groups_variation <- sidrar::get_sidra(
     variable = "Geral, grupo, subgrupo, item e subitem",
     value = Valor
   )
-
-{% endhighlight %}
+~~~
 
 Com isso, nos deparamos com o seguinte `data.frame`: 
 
@@ -237,8 +227,7 @@ Para nosso caso, será mais interessante deixarmos as informações no formato `
 
 Para isso, utilizaremos a função `pivot_wider()` do pacote `tidyr`, onde "pivotaremos" os dados, assim dizendo, transformaremos os valores contidos na coluna `variable` em novas colunas (argumento `names_from = variable`), compostos por seus respectivos valores da coluna `value` (argumento `values_from = value`):
 
-{% highlight R %}
-
+~~~r
 ipca_groups_variation <- sidrar::get_sidra(
   api = "/t/7060/n1/all/v/63/p/all/c315/7170,7445,7486,7558,7625,7660,7712,7766,7786/d/v63%202"
   ) |>
@@ -254,8 +243,7 @@ ipca_groups_variation <- sidrar::get_sidra(
     names_from = variable,
     values_from = value
   )
-
-{% endhighlight %}
+~~~
 
 Fazendo com que a disposição dos nossos dados fique dessa forma:
 
@@ -263,8 +251,7 @@ Fazendo com que a disposição dos nossos dados fique dessa forma:
 
 Já melhorou bastante, concorda? Mas ainda falta tratarmos os nomes das colunas, que não estão nem um pouco ideais. Com o uso da função `rename_with()` do pacote `dplyr`, iremos aplicar (`~`) a função `gsub()`, substituindo os números (`pattern = "[[:digit:]]"`) por nada (`replacement = ""`) de todos os nomes de coluna (`x = .`):
 
-{% highlight R %}
-
+~~~r
 #ipca groups monthly variation
 ipca_groups_variation <- sidrar::get_sidra(
   api = "/t/7060/n1/all/v/63/p/all/c315/7170,7445,7486,7558,7625,7660,7712,7766,7786/d/v63%202"
@@ -289,8 +276,7 @@ ipca_groups_variation <- sidrar::get_sidra(
      )
    ) |> 
   janitor::clean_names()
-
-{% endhighlight %}
+~~~
 
 Além disso, com o uso da função `clean_names()` do pacote `janitor`, iremos remover pontuações, acentos, espaços e letras maiúsculas, deixando no estilo `snake_case`:
 
@@ -298,8 +284,7 @@ Além disso, com o uso da função `clean_names()` do pacote `janitor`, iremos r
 
 Agora sim, nossos dados estão devidamente tratados. Para obter os pesos mensais de cada grupo, faremos o mesmo procedimento, trocando apenas o valor informado no argumento `api`.
 
-{% highlight R %}
-
+~~~r
 #ipca groups monthly weight
 ipca_groups_weight <- sidrar::get_sidra(
   api = "/t/7060/n1/all/v/66/p/all/c315/7170,7445,7486,7558,7625,7660,7712,7766,7786/d/v63%202"
@@ -324,13 +309,11 @@ ipca_groups_weight <- sidrar::get_sidra(
      )
    ) |> 
   janitor::clean_names()
-
-{% endhighlight %}
+~~~
 
 Com esses dois `data.frames`, podemos calcular a contribuição mensal de cada grupo no IPCA cheio. Bastaria multiplicar o objeto `ipca_groups_variation` pelo objeto `ipca_groups_weight` e dividir por 100, entretanto como variáveis do tipo `date` não podem ser multiplicadas, temos que fazer alguns contornos. 
 
-{% highlight R %}
-
+~~~r
 ipca_groups_variation_index <- ipca_groups_variation |> 
   tibble::column_to_rownames("date")
 
@@ -345,8 +328,7 @@ ipca_groups_contribution <- (
   dplyr::rename(
     date = rowname
   ) 
-
-{% endhighlight %}
+~~~
 
 Com a função `column_to_rownames()` e a função `rownames_to_column()` do pacote `tibble`, iremos transformar a coluna `date` de ambos os objetos para o `índice` do respectivo `data.frame`, realizar o cálculo e transformar de volta de `índice` para coluna.
 
@@ -354,8 +336,7 @@ Com a função `column_to_rownames()` e a função `rownames_to_column()` do pac
 
 Dessa maneira, foram abordados todos os dados que iremos puxar do SIDRA. Sendo assim, podemos já consolidar uma **função auxiliar**, a `get_clean_sidra_data()`, que usaremos dentro da nossa **função final**, ao fim deste post.
 
-{% highlight R %}
-
+~~~r
 #function to pull clean SIDRA data
 get_clean_sidra_data <- function(api, initial_date, rename_to, data_format = "wide") {
   
@@ -404,8 +385,7 @@ get_clean_sidra_data <- function(api, initial_date, rename_to, data_format = "wi
   return(get_clean_sidra_data)
   
 }
-
-{% endhighlight %}
+~~~
 
 Em que estipulamos 4 argumentos, sendo 2 deles "novos": 
 
@@ -424,8 +404,7 @@ Sendo que em (1), pode-se pesquisar por uma série a partir de uma palavra-chave
 
 Primeiro, criaremos o objeto `ipca_classifications_series`, contendo as séries das classificações do IPCA:
 
-{% highlight R %}
-
+~~~r
 #ipca classifications series
 ipca_classifications_series <- c(
   ipca_livres                = 11428,
@@ -439,19 +418,16 @@ ipca_classifications_series <- c(
   ipca_comercializaveis      = 4447,
   ipca_nao_comercializaveis  = 4448
   )  
-
-{% endhighlight %}
+~~~
 
 Feito isso, com o uso da função `get_series()` do pacote `rbcb`, iremos informar nossas séries ao argumento `code` e a data de início da série ao argumento `start_date`:
 
-{% highlight R %}
-
+~~~r
 ipca_classifications <- rbcb::get_series(
   code = ipca_classifications_series,
   start_date = initial_date
   )
-
-{% endhighlight %}
+~~~
 
 Neste caso, o objeto `ipca_classifications` será uma `lista` contendo os `data.frames` de cada série, totalizando 10 séries:
 
@@ -459,8 +435,7 @@ Neste caso, o objeto `ipca_classifications` será uma `lista` contendo os `data.
 
 Para deixar todas as séries de classificações do IPCA em um único `data.frame`, utilizaremos a função `reduce` do pacote `purrr`, que irá uni-las com base na coluna `date`, por meio da função `inner_join()` (mesma do SQL) do pacote `dplyr`:
 
-{% highlight R %}
-
+~~~r
 ipca_classifications <- rbcb::get_series(
   code = ipca_classifications_series,
   start_date = initial_date
@@ -469,8 +444,7 @@ ipca_classifications <- rbcb::get_series(
     dplyr::inner_join,
     by = "date"
   )
-
-{% endhighlight %}
+~~~
 
 Dessa maneira, obtemos o seguinte `data.frame`:
 
@@ -478,8 +452,7 @@ Dessa maneira, obtemos o seguinte `data.frame`:
 
 O mesmo procedimento será feito para capturarmos os dados dos núcleos de inflação do IPCA. Primeiramente, iremos criar um objeto com as séries, `core_ipca_series`, e depois os puxaremos do SGS, salvando no objeto `ipca_cores`:
 
-{% highlight R %}
-
+~~~r
 #core ipca series
 core_ipca_series <- c(
   ipca_ex0 = 11427,
@@ -501,13 +474,11 @@ ipca_cores <- rbcb::get_series(
     dplyr::left_join,
     by = "date"
   )
-
-{% endhighlight %}
+~~~
 
 Entretanto, para este caso, é interessante calcularmos a média por mês dos núcleos de interesse, sendo assim utilizaremos de alguns mecanismos do pacote `dplyr`:
 
-{% highlight R %}
-
+~~~r
 #ipca cores mean calculation
 ipca_cores <- ipca_cores |> 
   dplyr::rowwise() |>
@@ -520,8 +491,7 @@ ipca_cores <- ipca_cores |>
       2)
   ) |> 
   as.data.frame()
-
-{% endhighlight %}
+~~~
 
 Com o estabelecimento da função `rowwise()`, pode-se realizar cálculos de forma "row-at-a-time", isto é, em conjunto com a função `c_across()`, conseguimos calcular a média (`mean()`) de cada linha do `data.frame` (exceto para a coluna `date`, que é a 1ª coluna, por isso especificamos da 2ª em diante $\rightarrow$ `2:ncol(ipca_cores)`), extraindo o valor arredondado em 2 cadas decimais:
 
@@ -529,8 +499,7 @@ Com o estabelecimento da função `rowwise()`, pode-se realizar cálculos de for
 
 Por fim, resta pegarmos os dados históricos referente ao índice de difusão, que também seguirá o mesmo processo, entretanto sem necessidade de utilizar as funções `reduce()` e `inner_join()`, uma vez que se trata apenas de uma série:
 
-{% highlight R %}
-
+~~~r
 #diffusion index serie
 diffusion_index_serie <- c(
   diffusion_index = 21379
@@ -541,13 +510,11 @@ diffusion_index <- rbcb::get_series(
   code = diffusion_index_serie,
   start_date = initial_date
   )
-
-{% endhighlight %}
+~~~
 
 Com isso, chegamos ao fim da captura de todos os dados de interesse referentes ao IPCA, logo, podemos criar a nossa segunda **função auxiliar**, a `get_clean_rbcb_data()`:
 
-{% highlight R %}
-
+~~~r
 #function to pull clean SGS data
 get_clean_rbcb_data <- function(series, initial_date) {
   
@@ -576,15 +543,13 @@ get_clean_rbcb_data <- function(series, initial_date) {
   return(get_clean_rbcb_data)
   
 }
-
-{% endhighlight %}
+~~~
 
 Onde, ela recebe dois argumentos, a(s) série(s) em `series` e a data inicial em `initial_date`. Nela é feita uma condição lógica, em que caso o tamanho do objeto dado como argumento para a série seja igual a 1 (`if(length(series) == 1) {}`), será executado o procedimento conforme visto em `diffusion_index`, e caso contrário (`else {}`), como visto em `ipca_classifications`.
 
 Agora, partimos para a criação da **função final**, na qual denominaremos ela de `get_ipca_data`, que tratará de puxar todos os dados que foram abordados, de uma vez só, tendo como argumento apenas a data inicial, `initial_date`:
 
-{% highlight R %}
-
+~~~r
 #function to pull all IPCA data
 get_ipca_data <- function(initial_date) {
 
@@ -717,8 +682,7 @@ get_ipca_data <- function(initial_date) {
 
 #all data
 inflation_data <- get_ipca_data(initial_date = initial_date)
-
-{% endhighlight %}
+~~~
 
 Sendo que ao usá-la, atribuindo-a no objeto `inflation_data`, temos como `output` uma lista composta pelos `data.frames` apresentados:
 
@@ -726,8 +690,7 @@ Sendo que ao usá-la, atribuindo-a no objeto `inflation_data`, temos como `outpu
 
 Nos quais podem ser acessados com o operador `$`, a depender da necessidade, para futura manipulação:
 
-{% highlight R %}
-
+~~~r
 #ipca, ipca15, cores and cores mean
 ipca_and_core_monthly <- inflation_data[1:3] |> 
   purrr::reduce(inner_join)
@@ -742,8 +705,7 @@ ipca_groups_contribution <- inflation_data$ipca_groups_contribution_monthly
 
 #ipca classifications
 ipca_classifications <- inflation_data$ipca_classifications_monthly
-
-{% endhighlight %}
+~~~
 
 Portanto, chega-se ao fim dessa publicação, atingindo nosso objetivo de criar uma função que puxe diversos dados (tratados) referentes ao IPCA. Salienta-se que os passos efetuados fora dos colchetes de `function() {}`, foram apenas para fins de explicação e visualização, sendo que os resultados finais a serem considerados são as funções criadas.
 
