@@ -42,8 +42,6 @@ Sou apaixonado por esportes, tal como mountain biking, correr, nadar, andar de c
 
 Depois de cinco anos (aos 22, minha idade atual), finalizei meu bacharel em Ciências Econômicas pela Universidade Estadual de Santa Catarina - UDESC. Durante toda minha vida acadêmica, conciliei meus estudos com estágios, principalmente no setor do mercado financeiro, passando por áreas como Pesquisa Macroeconômica, Estruturação e Precificação de Ativos de Renda Fixa, e onde estou agora, como estagiário de Gerenciamento de Riscos na Faria Lima, a Wallstreet brasileira.
 
-My plans englobe writing about personal finance projects I do, macroeconomics topics I enjoy and financial modelling problems I came across along my working journey.
-
 Meus planos englobam escrever sobre projetos de finanças pessoais que faço, tópicos de macroeconomia aplicada que eu gosto e problemas de modelagem financeira que me deparei durante minha jornada de trabalho.
 
 Você pode acessar meu CV [aqui]({{ site.url }}/assets/pdf_and_xlsx/CV_Cairê_Britto_Barletta.pdf){:target="_blank"}.
@@ -51,7 +49,7 @@ Você pode acessar meu CV [aqui]({{ site.url }}/assets/pdf_and_xlsx/CV_Cairê_Br
 # Algumas coisas que fiz
 
 - Minha [monografia de graduação]({{ site.url }}/assets/pdf_and_xlsx/TCC_Cairê_Britto_Barletta.pdf){:target="_blank"}, Mensurando a Comunicação do Banco Central do Brasil: Uma Análise de Sentimentos das Atas do Copom e Impacto em Variáveis Macroeconômicas;
-- Um [Desafio de Ciências de Dados]({{ site.url }}/assets/pdf_and_xlsx/analisemacro_data_science_challenge_with_R.pdf){:target="_blank"} da empresa Analisemacro que ganhei em conjunto com outra pessoa (havendo competidores de todo Brasil); 
-- Um [artigo de modelos de volatilidade VaR ARMA-GARCH e VaR Constante]({{ site.url }}/assets/pdf_and_xlsx/var_garch_model_with_R.pdf){:target="_blank"} que fiz quando fazia parte **CONTINUAR DAQUI** I've made to the Clube de Finanças Financial Markets Academic League, that can also be found [here](http://clubedefinancas.com.br/materias/econometria-r-var-delta-normal-var-garch){:target="_blank"};
-- A [Scientific Article]({{ site.url }}/assets/pdf_and_xlsx/semead_article_labges.pdf){:target="_blank"} accepted and presented at USP, that can also be found [here](https://www.researchgate.net/publication/342424971_POTENCIALIDADES_PARA_A_FORMACAO_DE_ORGANIZACOES_VIRTUAIS_POR_MEIO_DE_COOPERACOES_INTERORGANIZACIONAIS){:target="_blank"};
-- A [work]({{ site.url }}/assets/pdf_and_xlsx/monetary_economics_work_with_R.pdf){:target="_blank"} I've made during Monetary Economics classes at the University. 
+- Um [Desafio de Ciências de Dados]({{ site.url }}/assets/pdf_and_xlsx/analisemacro_data_science_challenge_with_R.pdf){:target="_blank"} da empresa _Análise Macro_ que ganhei em conjunto com outra pessoa (havendo competidores de todo Brasil); 
+- Um [artigo de modelos de volatilidade VaR ARMA-GARCH e VaR Constante]({{ site.url }}/assets/pdf_and_xlsx/var_garch_model_with_R.pdf){:target="_blank"} que fiz quando fazia parte da Liga Acadêmica de Mercado Financeiro - Clube de Finanças, que também pode ser encontrado [aqui](http://clubedefinancas.com.br/materias/econometria-r-var-delta-normal-var-garch){:target="_blank"};
+- Um [Artigo Científico]({{ site.url }}/assets/pdf_and_xlsx/semead_article_labges.pdf){:target="_blank"} aceito e apresentado na USPaccepted and presented at USP, que também pode ser encontrado [aqui](https://www.researchgate.net/publication/342424971_POTENCIALIDADES_PARA_A_FORMACAO_DE_ORGANIZACOES_VIRTUAIS_POR_MEIO_DE_COOPERACOES_INTERORGANIZACIONAIS){:target="_blank"};
+- Um [trabalho]({{ site.url }}/assets/pdf_and_xlsx/monetary_economics_work_with_R.pdf){:target="_blank"} que fiz durante a matéria de Economia Monetária na universidade.
