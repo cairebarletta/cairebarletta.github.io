@@ -114,7 +114,7 @@ Poderíamos passar outros argumentos para a função de leitura de arquivos `.xl
 
 Utilizando-se da função inerte `View(cashflow_example)`, conseguimos olhar de maneira geral o data frame que importamos do excel:
 
-![Data Frame Visualization](:data_frame_cashflow_example.PNG){:data-align="center"}
+![Exemplo de Fluxo de Caixa](:data_frame_cashflow_example.PNG){:data-align="center"}
 
 Dessa maneira, destaca-se que o título possui 57 pagamentos de fluxo de caixa, sendo pagos cupons mensais e havendo amortizações a cada três meses, após o 18º mês, em 31/03/2025. Além disso, observa-se que o primeiro pagamento é feito em 31/10/2023 e o último em 30/06/2028, ou seja, um ativo com 65 meses de duração.
 
@@ -147,7 +147,7 @@ cashflow_example <- readxl::read_excel(example_cashflow) |>
 
 Primeiramente, criamos uma coluna `biz_days` que conta o número de dias úteis (com base no calendário Anbima), entre 26/12/2022 (data em que esse post foi escrito) e cada vértice de pagamento. Junto a isso, calculamos a variável `time`, que nada mais é que o número de dias úteis dividido por 252 (número padrão de dias úteis em um ano, comumente – mas não necessariamente sempre – usado para aplicações financeiras).
 
-![Data Frame Visualization II](:data_frame_cashflow_example_II.PNG){:data-align="center"}
+![Exemplo de Fluxo de Caixa - Adição de Colunas](:data_frame_cashflow_example_II.PNG){:data-align="center"}
 
 Como por exemplo, na 38ª observação, em 30/11/2026, haverá um pagamento futuro de R$234.700,50 (apenas cupom), que está a 988 dias úteis de distância da data inicial, isto é, cerca de 3,92 anos no calendário base de 252 dias.
 
