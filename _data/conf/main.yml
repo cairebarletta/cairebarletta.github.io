@@ -209,7 +209,7 @@ top_nav_brand_text_enable: true
 
 # set profile image
 # comment to disable the profile image
-side_nav_profile_img_path: tree/main/assets/img/default/profile_pic.jpg
+side_nav_profile_img_path: https://avatars.githubusercontent.com/u/80650093?s=400&u=478a9bf79a2585cd7627a3c4950657b6dfb4f197&v=4
 
 # this adds hover effect to bottom buttons
 side_nav_bottom_buttons_hover_effect: "hover-effect"
