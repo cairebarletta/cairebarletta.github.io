@@ -107,7 +107,7 @@ O Índice de Difusão do IPCA é basicamente a relação da quantidade de itens 
 
 Após a exploração de alguns conceitos que tangem o IPCA, núcleos de inflação e índice de difusão, passemos para a parte prática, onde iremos extrair informações diversas do [SIDRA](https://sidra.ibge.gov.br/home/ipca/brasil){:target="_blank"} do IBGE e do [SGS](https://www3.bcb.gov.br/sgspub/localizarseries/localizarSeries.do?method=prepararTelaLocalizarSeries){:target="_blank"} do BCB, por meio do `R`.
 
-Primeiramente, iremos carregar os pacotes que iremos utilizar com a ajuda do pacote `pacman` (exploro mais sobre esse ponto no post [Duration of a bond using R]({% post_url /_posts/2022-12-26-duration %}){:target="_blank"}):
+Primeiramente, iremos carregar os pacotes que iremos utilizar com a ajuda do pacote `pacman` (exploro mais sobre esse ponto no post **SERÁ QUE FOI AQUI O ERRO?**
 
 {% highlight R %}
 
