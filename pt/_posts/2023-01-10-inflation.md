@@ -227,7 +227,7 @@ Dessa forma, podemos fazer algumas constatações sobre os dados:
 - há informação disponível a partir de 01/01/2020 (incluso);
 - estão dispostos no formato `long`.
 
-Sobre o último ponto, significa que as informações estão representadas de forma mais densa, isto é, é apresentadas com uma coluna contendo todos os valores e outra coluna listando os contextos dos valores, como por exemplo:
+Sobre o último ponto, significa que as informações estão representadas de forma mais densa, isto é, são apresentadas com uma coluna contendo todos os valores e outra coluna listando os contextos dos valores, como por exemplo:
 
 ![Exemplo de Dados no Formato Long](:long_data_example.PNG){:data-align="center"}
 
