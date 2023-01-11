@@ -294,7 +294,7 @@ meta:
   schema_markup_post_type: BlogPosting
   schema_markup_post: true
   schema_markup_post_add_postbody: true
-  schema_markup_logo_img: /assets/img/apple-touch-icon.png
+  schema_markup_logo_img: /assets/img/about/about.jpg
   schema_markup_about_img: /assets/img/about/about.jpg
   schema_markup_default_meta_img: /assets/img/about/about.jpg
   mobile_app: true
