@@ -39,4 +39,60 @@ date: 2023-01-10
 #published: false
 ---
 
-teste teste teste
+<!-- outline-start -->
+
+Neste post irei apresentar ao leitor alguns conceitos macroeconômicos sobre inflação, núcleos de inflação e índice de difusão. Posteriormente, serão apresentadas formas de obter dados sobre esses conceitos diretamente pelo `R`, onde serão criadas funções contemplando a coleta e tratamento dos mesmos, facilitando a vida daqueles que procuram ter uma recorrência na sua obtenção.
+
+<!-- outline-end -->
+
+## Introdução
+
+O que é inflação? Pela definição do IBGE, inflação é como se denomina o aumento dos preços de produtos e serviços. Já nas aulas de economia, aprende-se que inflação é o nome dado para o aumento **generalizado** e **persistente** dos preços de produtos e serviços. A princípio não parece haver muita diferença, não é mesmo? Porém, exploraremos esses pontos ao longo desse post e veremos o motivo de serem importantes.
+
+Por outro lado, uma taxa de inflação mede a magnitude ao qual os preços de determinada cesta de bens e serviços variam de um período para outro.
+
+Para o caso brasileiro, existem diversos índices de inflação, que acompanham diferentes itens, com diferentes proporções, como o IPC, o INPC, o IGP-M, o IPCA – sendo que no post de hoje, focaremos nesse último.
+
+## O Índice de Preços ao Consumidor Amplo (IPCA)
+
+O índice de inflação oficial do governo federal do Brasil é o IPCA, utilizado para o Banco Central do Brasil (BCB) cumprir o Regime de Metas de Inflação (RMI), decretado em 1999. Este indicador é calculado e divulgado mensalmente pelo Instituto Brasileiro de Geografia e Estatística (IBGE).
+
+São coletados preços de comércios, prestadores de serviços, concessionárias de serviços públicos e pela internet, estendendo-se do primeiro dia até o último do mês de referência. Além disso, a população-alvo da amostra do IPCA abrange famílias que possuem de **1 até 40 salários mínimos** das principais metrópoles brasileiras, sendo elas: Belém, Fortaleza, Recife, Salvador, Belo Horizonte, Vitória, Rio de Janeiro, São Paulo, Curitiba, Porto Alegre, Distrito Federal e municípios de Goiânia, Campo Grande, Rio Branco, São Luís e Aracaju.
+
+A sua cesta de itens é determinada pela **Pesquisa de Orçamentos Familiares (POF)** – também medida pelo IBGE – que, entre outros pontos, aponta o que a população consome e quanto da renda da família é despendido em cada produto. Dessa maneira, os índices levam em conta também o peso dos itens no orçamento familiar, onde a soma do produtório entre a variação ao mês e o peso dos respectivos itens, nos informa a variação mensal do índice cheio.
+
+### Grupos, subgrupos, itens e subitens do IPCA
+
+O IPCA é composto por 9 **grupos**, os quais são:
+
+- Alimentação e bebidas;
+- Habitação;
+- Artigos de residência;
+- Vestuário;
+- Transportes;
+- Saúde e cuidados pessoais;
+- Despesas pessoais;
+- Educação;
+- Comunicação.
+
+Sendo que esses 9 grupos são divididos em **subgrupos** (que por sua vez são divididos em itens e subitens).
+
+### Classificações do IPCA
+
+Além da divisão exposta acima, o IPCA também pode ser dividido entre **classificações**, com suas respectivas mudanças de proporções das últimas duas POF, como na tabela a seguir, extraída e adaptada do BCB:
+
+![Categorias do IPCA](:classificacoes_ipca_tabela_ibge.PNG){:data-align="center"}
+
+Assim sendo, inseridos no índice, existem preços que são controlados pelo governo (reajustes destes precisam de autorização), os preços **administrados**; e preços que seguem uma lógica de mercado, isto é, seguem a relação de oferta e demanda, os preços **livres**. Essas classificações são utilizadas para a elaboração de medidas de núcleos de inflação.
+
+### Núcleos de inflação do IPCA
+
+Como alguns itens que compõem o IPCA podem demonstrar variações com menor frequência ou com maior volatilidade, o BCB, buscando a captura e acompanhamento de uma tendência inflacionária com o passar do tempo, baseado em outras economias internacionais, criou medidas auxiliares, os denominados **núcleos de inflação**. 
+
+Nos últimos anos, o BCB calculou, divulgou e considerou em sua comunicação, 7 medidas de núcleos, sendo elas e suas descrições expostas na tabela abaixo:
+
+![Categorias dos Núcleos de Inflação - IPCA](:ipca_cores_BCB.PNG){:data-align="center"}
+
+Entretanto, conforme divulgado no Estudo Especial nº 102 de junho de 2020, o BCB redefiniu o conjunto de núcleos de inflação acompanhados para fins de análise conjuntural. Dessa forma, o novo conjunto proposto é formado por 5 núcleos, sendo que dos núcleos anteriores, foram mantidos 4 (IPCA-EX0, IPCA-EX3, IPCA-MS e IPCA-DP), sendo adicionado o núcleo IPCA-P55, que corresponde à variação do 55-ésimo percentil da distribuição ponderada pelos pesos dos subitens.
+
+São por meio dos núcleos de inflação que conseguimos captar a parte de **persistência** dos preços de produtos e serviços comentada na seção introdutória.
