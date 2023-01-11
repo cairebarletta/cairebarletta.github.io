@@ -83,32 +83,26 @@ Primeiramente, devemos carregar os pacotes que iremos utilizar na elaboração d
 
 Para contornar essa questão, utilizaremos o pacote `pacman` e com uma simples condição lógica, de forma agregada (ao invés de um por um, como seria se fizéssemos o passo anterior), checaremos se os pacotes estão instalados – caso estiverem, os carregaremos, caso contrário, os instalaremos e depois, os carregamos, como segue:
 
-{% highlight R %}
-
+~~~r
 #loading packages used
 if (!require(pacman)) install.packages(pacman)
 pacman::p_load(tidyverse, bizdays)
-
-{% endhighlight %}
+~~~
 
 Após estarmos com os pacotes nos quais trabalharemos em cima, carregados, iremos definir como padrão o calendário de dias úteis (que desconsidera fins de semana e feriados) disponibilizado pela [Anbima](https://www.anbima.com.br/feriados/feriados.asp){:target="_blank"}.
 
-{% highlight R %}
-
+~~~r
 #setting anbima calendar as default
 bizdays::bizdays.options$set(default.calendar = "Brazil/ANBIMA")
-
-{% endhighlight %}
+~~~
 
 Para a construção do nosso problema, usaremos como base um fluxo de caixa fictício como exemplo, sendo possível o download do arquivo em `.xlsx` [aqui]({{ site.url }}/assets/pdf_and_xlsx/example_cashflow.xlsx){:target="_blank"}. O arquivo conta com três colunas: `date`, referente a data de pagamento do fluxo; `future_value`, referente ao montante pago na data de referência; e `event`, explicitando se é o pagamento de um cupom ou o pagamento de uma amortização.
 
 Para ler o arquivo dentro do `R`, usaremos a função `read_excel()` do pacote `readxl`, que carregamos ao chamar o universo `tidyverse`, como segue:
 
-{% highlight R %}
-
+~~~r
 cashflow_example <- readxl::read_excel("./example_cashflow.xlsx")
-
-{% endhighlight %}
+~~~
 
 Poderíamos passar outros argumentos para a função de leitura de arquivos `.xlsx`, mas para nosso caso não será preciso. Além disso, há dois pontos que gostaria de observar aqui: (1) como existem diversas funções com nomes iguais, porem de diferentes pacotes, gosto sempre de colocar na frente da função, a origem de seu pacote, como `package::`. Isto não é necessário, porém considero uma ótima prática; (2) o `./` é uma redução para referenciar o `working directory` do seu projeto/seu script, facilitando a nossa vida, ao invés de escrever o diretório por completo.
 
@@ -120,19 +114,16 @@ Dessa maneira, destaca-se que o título possui 57 pagamentos de fluxo de caixa, 
 
 Com um simples `str(cashflow_example)`, podemos observar que nossos dados são do tipo: `date` $\rightarrow$ `POSIXct`, `future_value` $\rightarrow$ `numeric` e `event` $\rightarrow$ `character`. Sendo assim, para uma melhor manipulação das informações, iremos alterar somente a variável `date`, para o formato padrão `date`:
 
-{% highlight R %}
-
+~~~r
 cashflow_example <- readxl::read_excel(example_cashflow) |>
   dplyr::mutate(
     date = as.Date(date)
     )
-
-{% endhighlight %}
+~~~
 
 Agora, depois que importamos os dados para dentro do `R`, que as observações iniciais foram feitas e o único tratamento necessário dos dados foi feito, iniciamos os cálculos para obtermos os valores das Durations.
 
-{% highlight R %}
-
+~~~r
 initial_date <- "2022-12-26" #Sys.Date()
 
 cashflow_example <- readxl::read_excel(example_cashflow) |>
@@ -142,8 +133,7 @@ cashflow_example <- readxl::read_excel(example_cashflow) |>
                                 to = date),
     time = biz_days / 252
     )
-
-{% endhighlight %}
+~~~
 
 Primeiramente, criamos uma coluna `biz_days` que conta o número de dias úteis (com base no calendário Anbima), entre 26/12/2022 (data em que esse post foi escrito) e cada vértice de pagamento. Junto a isso, calculamos a variável `time`, que nada mais é que o número de dias úteis dividido por 252 (número padrão de dias úteis em um ano, comumente – mas não necessariamente sempre – usado para aplicações financeiras).
 
@@ -159,8 +149,7 @@ Onde, $VP_{t}$ é o valor presente do fluxo de caixa no tempo _t_, $VF_{t}$ é o
 
 Um adendo: o valor presente possui essa fórmula uma vez que o dinheiro hoje, _ceteris paribus_, vale mais que o dinheiro no futuro, diferença essa alcançada pelo tempo que falta para receber esse fluxo e pela taxa de juros de interesse, que em nosso exemplo será uma taxa dada, na grandeza de 21,03%:
 
-{% highlight R %}
-
+~~~r
 yield <- 0.2103
 
 cashflow_example <- readxl::read_excel(example_cashflow) |>
@@ -171,13 +160,11 @@ cashflow_example <- readxl::read_excel(example_cashflow) |>
     time = biz_days / 252,
     present_value = future_value / (1 + yield) ^ time
     )
-
-{% endhighlight %}
+~~~
 
 Com isso, conseguimos calcular a Duration para cada vértice de pagamento e posteriormente, calcular a Duration de Macaulay e a Duration Modificada, por meio das expressões previamente abordadas:
 
-{% highlight R %}
-
+~~~r
 cashflow_example <- readxl::read_excel(example_cashflow) |>
   dplyr::mutate(
     date = as.Date(date),
@@ -191,16 +178,13 @@ cashflow_example <- readxl::read_excel(example_cashflow) |>
 macaulay_duration <- sum(cashflow_example$duration_n)
 
 modified_duration <- -1 * macaulay_duration / (1 + yield)
-
-{% endhighlight %}
+~~~
 
 Isto posto, observamos uma Duration de Macaulay de 3,06 anos em contraposição a uma duração do título de 5,42 anos (65 meses $\rightarrow$ duração do título, dividido por 12 meses $\rightarrow$ quantidade de meses em um ano). Além do mais, temos uma Duration Modificada de -2,53%, isto é, para uma alteração de 1,00% no `yield`, nossa Duration de Macaulay varia nesse montante.
 
 Por fim, criamos uma função, em que ela recebe como input: um `yield`; um `cashflow` no formato `.xlsx`, conforme foi visto e uma `initial_date`, que caso não for informada uma data, considerará a data do dia em que o script for rodado (`Sys.Date()`).
 
 Como output, a função retorna uma lista com três objetos: `calculus_table`, que é a tabela com as informações de `date`, `future_value`, `event`, `biz_days`, `time`, `presente_value` e `duration_n`; `macaulay_duration`, que é a Duration de Macaulay e `modified_duration` que é a Duration Modificada.
-
-{% highlight R %}
 
 ~~~r
 #duration function
