@@ -26,7 +26,7 @@
       {%- if share_key == "copy_link" -%}
         {%- assign tag_url = 'javascript:void(0);' -%}
         {%- capture tag_attr -%}
-          onclick="copyToClipboard({{ site.url }}, '{{ include.url | absolute_url }}', '{{ site.data.lang[lng].post.share.link_copied }}')" id="copytoclipboard"
+          onclick="copyToClipboard('{{ site.url }}', '{{ include.url | absolute_url }}', '{{ site.data.lang[lng].post.share.link_copied }}')" id="copytoclipboard"
         {%- endcapture -%}
       {% endif -%}
 
