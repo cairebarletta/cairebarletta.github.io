@@ -51,10 +51,11 @@ defaults:
 # Configuring Jekyll in your GitHub Pages site (https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll)
 ###########################################################
 # This is default for GitHub Pages sites and cannot be changed.
-highlighter: rouge
 markdown: kramdown
+#highlighter: rouge
 kramdown:
   # This is default for GitHub Pages sites and cannot be changed.
+  input: GFM
   syntax_highlighter: rouge
 
 ###########################################################
