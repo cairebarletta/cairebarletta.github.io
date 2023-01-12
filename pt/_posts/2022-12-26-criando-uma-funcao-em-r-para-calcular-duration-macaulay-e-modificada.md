@@ -67,13 +67,13 @@ Sendo assim, é uma medida do tempo de vida útil de um título, considerando qu
 
 ### Duration Modificada
 
-Já a Duration Modificada nos permite determinar o impacto de uma variação de 1,00% na taxa de juros de interesse sobre a Duration de Macaulay do título, sendo representada pela relação:
+Já a Duration Modificada nos permite determinar o impacto de uma variação de 1,00% na taxa de juros de interesse sobre o preço do título, sendo representada pela relação:
 
 $$D_{Modificada} = - \frac{D_{Macaulay}}{(1 + r)} $$
 
 Onde, $r$ é a taxa de juros de interesse.
 
-Quanto maior for o resultado da Duration Modificada, mais sensível é o título a mudanças na taxa de juros. Como por exemplo, se a taxa de juros de interesse variar 1,00%, e a Duration do título varia 1,50%; em comparação à outro ativo, onde a Duration do título varia 2,75% – temos então, entre os dois, que o mais volátil é o segundo, enquanto o primeiro varia menos (sendo, nesse aspecto, um ativo mais seguro).
+Quanto maior for o resultado da Duration Modificada, mais sensível é o título a mudanças na taxa de juros. Como por exemplo, se a taxa de juros de interesse variar 1,00%, e o preço do título varia 1,50%; em comparação à outro ativo, onde o preço do título varia 2,75% – temos então, entre os dois, que o mais volátil é o segundo, enquanto o primeiro varia menos (sendo, nesse aspecto, um ativo mais seguro).
 
 ## Criando uma função em R para calcular ambas as Durations
 
@@ -180,7 +180,7 @@ macaulay_duration <- sum(cashflow_example$duration_n)
 modified_duration <- -1 * macaulay_duration / (1 + yield)
 ~~~
 
-Isto posto, observamos uma Duration de Macaulay de 3,06 anos em contraposição a uma duração do título de 5,42 anos (65 meses $\rightarrow$ duração do título, dividido por 12 meses $\rightarrow$ quantidade de meses em um ano). Além do mais, temos uma Duration Modificada de -2,53%, isto é, para uma alteração de 1,00% no `yield`, nossa Duration de Macaulay varia nesse montante.
+Isto posto, observamos uma Duration de Macaulay de 3,06 anos em contraposição a uma duração do título de 5,42 anos (65 meses $\rightarrow$ duração do título, dividido por 12 meses $\rightarrow$ quantidade de meses em um ano). Além do mais, temos uma Duration Modificada de -2,53%, isto é, para uma alteração de 1,00% no `yield`, o preço do nosso título varia nesse montante.
 
 Por fim, criamos uma função, em que ela recebe como input: um `yield`; um `cashflow` no formato `.xlsx`, conforme foi visto e uma `initial_date`, que caso não for informada uma data, considerará a data do dia em que o script for rodado (`Sys.Date()`).
 
