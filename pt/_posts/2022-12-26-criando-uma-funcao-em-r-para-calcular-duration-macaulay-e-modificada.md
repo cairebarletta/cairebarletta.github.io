@@ -41,7 +41,7 @@ date: 2022-12-26
 
 <!-- outline-start -->
 
-Eu estava pensando em qual seria o primeiro tópico que abordaria em um post após a elaboração da estrutura desse blog. Depois de elencar algumas possíveis opções, decidi que iria falar sobre Duration, algo relativamente básico, mas muito importante e bastante usado no mundo do mercado financeiro.
+Eu estava pensando em qual seria o primeiro tópico que abordaria em uma publicação após a elaboração da estrutura desse blog. Depois de elencar algumas possíveis opções, decidi que iria falar sobre Duration, algo relativamente básico, mas muito importante e bastante usado no mundo do mercado financeiro.
 
 <!-- outline-end -->
 
@@ -135,7 +135,7 @@ cashflow_example <- readxl::read_excel(example_cashflow) |>
     )
 ~~~
 
-Primeiramente, criamos uma coluna `biz_days` que conta o número de dias úteis (com base no calendário Anbima), entre 26/12/2022 (data em que esse post foi escrito) e cada vértice de pagamento. Junto a isso, calculamos a variável `time`, que nada mais é que o número de dias úteis dividido por 252 (número padrão de dias úteis em um ano, comumente – mas não necessariamente sempre – usado para aplicações financeiras).
+Primeiramente, criamos uma coluna `biz_days` que conta o número de dias úteis (com base no calendário Anbima), entre 26/12/2022 (data em que essa publicação foi escrita) e cada vértice de pagamento. Junto a isso, calculamos a variável `time`, que nada mais é que o número de dias úteis dividido por 252 (número padrão de dias úteis em um ano, comumente – mas não necessariamente sempre – usado para aplicações financeiras).
 
 ![Exemplo de Fluxo de Caixa - Adição de Colunas](:data_frame_cashflow_example_II.PNG){:data-align="center"}
 
