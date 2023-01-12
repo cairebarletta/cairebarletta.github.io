@@ -152,7 +152,7 @@ $anchor-text-color-light: #3389de;
 // common/markdown-style
 %markdown-style-colors-light {
   --markdown-styles-header-text-color: #{$header-color-light};
-  --markdown-styles-table-border-color: #ddd;
+  --markdown-styles-table-border-color: #444;
   --markdown-styles-blockquote-background-color: #eee;
   --markdown-styles-blockquote-side-color: #{$brand-color-light};
   --markdown-styles-kbd-background-color: #888;
