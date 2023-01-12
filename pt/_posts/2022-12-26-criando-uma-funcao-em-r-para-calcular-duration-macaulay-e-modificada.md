@@ -47,9 +47,9 @@ Eu estava pensando em qual seria o primeiro tópico que abordaria em uma publica
 
 ## Introdução
 
-A Duration de um título é uma métrica de sensibilidade de um título em relação à mudanças nas/em taxas de juros. Um título com uma maior Duration será mais sensível à mudanças na taxa de juros, enquanto um título com uma Duration menor será menos sensível.
+A Duration de um ativo financeiro que constitui-se de fluxos de caixa, como um título, pode ser determinada como o tempo médio ponderado do recebimento desses fluxos; ou quando o preço de um ativo é abordado como função do rendimento, a Duration mensura a sensibilidade do preço em relação ao rendimento do título.
 
-Há duas principais medidas de Duration de um título, sendo elas a Duration de Macaulay e a Duration Modificada.
+Dessa forma, há duas principais medidas de Duration de um título, sendo elas a Duration de Macaulay e a Duration Modificada.
   
 ### Duration de Macaulay
 
@@ -67,7 +67,7 @@ Sendo assim, é uma medida do tempo de vida útil de um título, considerando qu
 
 ### Duration Modificada
 
-Já a Duration Modificada nos permite determinar o impacto de uma variação de 1,00% na taxa de juros de interesse sobre o preço do título, sendo representada pela relação:
+Já a Duration Modificada, que é resultante da derivada matemática do preço de um título, mensura a taxa percentual de variação do preço em relação ao rendimento. Ela nos permite determinar o impacto de uma variação de 1,00% na taxa de juros de interesse sobre o preço do título, sendo representada pela relação:
 
 $$D_{Modificada} = - \frac{D_{Macaulay}}{(1 + r)} $$
 
