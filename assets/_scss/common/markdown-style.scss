@@ -118,13 +118,6 @@
   box-shadow: revert;
 }
 
-/* Quoted text */
-.markdown-style code {
-  background-color: var(--markdown-styles-quote-background-color);
-  color: var(--markdown-styles-quote-text-color);
-  overflow-wrap: break-word;
-}
-
 /* for Videos */
 .video-wrapper {
   width: 80%;
