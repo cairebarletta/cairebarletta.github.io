@@ -152,13 +152,13 @@ $anchor-text-color-light: #3389de;
 // common/markdown-style
 %markdown-style-colors-light {
   --markdown-styles-header-text-color: #{$header-color-light};
-  --markdown-styles-table-border-color: #444;
+  --markdown-styles-table-border-color: #ddd;
   --markdown-styles-blockquote-background-color: #eee;
   --markdown-styles-blockquote-side-color: #{$brand-color-light};
   --markdown-styles-kbd-background-color: #888;
   --markdown-styles-kbd-text-color: #eee;
   --markdown-styles-code-background-color: #333;
-  --markdown-styles-code-text-color: #333;
+  --markdown-styles-code-text-color: #abacaa;
   --markdown-styles-quote-background-color: #eee;
   --markdown-styles-quote-text-color: #{$header-color-light};
 }
