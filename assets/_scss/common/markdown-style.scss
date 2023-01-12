@@ -118,6 +118,32 @@
   box-shadow: revert;
 }
 
+/* code */
+.markdown-style pre {
+  background-color: var(--markdown-styles-code-background-color);
+  font-size: 1.4rem;
+}
+
+/* code */
+.markdown-style pre > code {
+  background-color: var(--markdown-styles-code-background-color);
+  color: var(--markdown-styles-code-text-color);
+}
+
+/* code */
+.markdown-style .highlight {
+  background-color: var(--markdown-styles-code-background-color);
+  color: var(--markdown-styles-code-text-color);
+  font-size: 1.4rem;
+}
+
+/* Quoted text */
+.markdown-style code {
+  background-color: var(--markdown-styles-quote-background-color);
+  color: var(--markdown-styles-quote-text-color);
+  overflow-wrap: break-word;
+}
+
 /* for Videos */
 .video-wrapper {
   width: 80%;
