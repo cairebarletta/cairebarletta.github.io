@@ -26,8 +26,6 @@
   --footer-height: 27px;
 }
 
-@import url(monokai.css)
-
 {% if site.data.conf.main.google_font_load_in_head == nil or site.data.conf.main.google_font_load_in_head == false %}
   @import url({{ site.data.conf.main.google_font_style_url }});
 {% endif %}
