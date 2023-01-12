@@ -41,17 +41,17 @@ date: 2023-01-10
 
 <!-- outline-start -->
 
-Neste post irei apresentar ao leitor alguns conceitos macroeconômicos sobre inflação, núcleos de inflação e índice de difusão. Posteriormente, serão apresentadas formas de obter dados sobre esses conceitos diretamente pelo `R`, onde serão criadas funções contemplando a coleta e tratamento dos mesmos, facilitando a vida daqueles que procuram ter uma recorrência na sua obtenção.
+Nessa publicação irei apresentar ao leitor alguns conceitos macroeconômicos sobre inflação, núcleos de inflação e índice de difusão. Posteriormente, serão apresentadas formas de obter dados sobre esses conceitos diretamente pelo `R`, onde serão criadas funções contemplando a coleta e tratamento dos mesmos, facilitando a vida daqueles que procuram ter uma recorrência na sua obtenção.
 
 <!-- outline-end -->
 
 ## Introdução
 
-O que é inflação? Pela definição do IBGE, inflação é como se denomina o aumento dos preços de produtos e serviços. Já nas aulas de economia, aprende-se que inflação é o nome dado para o aumento **generalizado** e **persistente** dos preços de produtos e serviços. A princípio não parece haver muita diferença, não é mesmo? Porém, exploraremos esses pontos ao longo desse post e veremos o motivo de serem importantes.
+O que é inflação? Pela definição do IBGE, inflação é como se denomina o aumento dos preços de produtos e serviços. Já nas aulas de economia, aprende-se que inflação é o nome dado para o aumento **generalizado** e **persistente** dos preços de produtos e serviços. A princípio não parece haver muita diferença, não é mesmo? Porém, exploraremos esses pontos ao longo dessa publicação e veremos o motivo de serem importantes.
 
 Por outro lado, uma taxa de inflação mede a magnitude ao qual os preços de determinada cesta de bens e serviços variam de um período para outro.
 
-Para o caso brasileiro, existem diversos índices de inflação, que acompanham diferentes itens, com diferentes proporções, como o IPC, o INPC, o IGP-M, o IPCA – sendo que no post de hoje, focaremos nesse último.
+Para o caso brasileiro, existem diversos índices de inflação, que acompanham diferentes itens, com diferentes proporções, como o IPC, o INPC, o IGP-M, o IPCA – sendo que na publicação de hoje, focaremos nesse último.
 
 ## O Índice de Preços ao Consumidor Amplo (IPCA)
 
@@ -107,7 +107,7 @@ O Índice de Difusão do IPCA é basicamente a relação da quantidade de itens 
 
 Após a exploração de alguns conceitos que tangem o IPCA, núcleos de inflação e índice de difusão, passemos para a parte prática, onde iremos extrair informações diversas do [SIDRA](https://sidra.ibge.gov.br/home/ipca/brasil){:target="_blank"} do IBGE e do [SGS](https://www3.bcb.gov.br/sgspub/localizarseries/localizarSeries.do?method=prepararTelaLocalizarSeries){:target="_blank"} do BCB, por meio do `R`.
 
-Primeiramente, iremos carregar os pacotes que iremos utilizar com a ajuda do pacote `pacman` (exploro mais sobre esse ponto no post [Criando uma função em R para calcular a Duration de Macaulay e a Duration Modificada]({% post_url /pt/_posts/2022-12-26-criando-uma-funcao-em-r-para-calcular-duration-macaulay-e-modificada %}){:target="_blank"}):
+Primeiramente, iremos carregar os pacotes que iremos utilizar com a ajuda do pacote `pacman` (exploro mais sobre esse ponto na publicação [Criando uma função em R para calcular a Duration de Macaulay e a Duration Modificada]({% post_url /pt/_posts/2022-12-26-criando-uma-funcao-em-r-para-calcular-duration-macaulay-e-modificada %}){:target="_blank"}):
 
 ~~~r
 #loading packages used
@@ -334,7 +334,7 @@ Com a função `column_to_rownames()` e a função `rownames_to_column()` do pac
 
 ![Transformação Coluna <> Índice](:tabela_contribuicao_grupos_ipca_coluna_para_indice_R.PNG){:data-align="center"}
 
-Dessa maneira, foram abordados todos os dados que iremos puxar do SIDRA. Sendo assim, podemos já consolidar uma **função auxiliar**, a `get_clean_sidra_data()`, que usaremos dentro da nossa **função final**, ao fim deste post.
+Dessa maneira, foram abordados todos os dados que iremos puxar do SIDRA. Sendo assim, podemos já consolidar uma **função auxiliar**, a `get_clean_sidra_data()`, que usaremos dentro da nossa **função final**, ao final dessa publicação.
 
 ~~~r
 #function to pull clean SIDRA data
