@@ -118,18 +118,6 @@
   box-shadow: revert;
 }
 
-/* code */
-.markdown-style pre {
-  background-color: var(--markdown-styles-code-background-color);
-  font-size: 1.4rem;
-}
-
-/* code */
-.markdown-style pre > code {
-  background-color: var(--markdown-styles-code-background-color);
-  color: var(--markdown-styles-code-text-color);
-}
-
 /* Quoted text */
 .markdown-style code {
   background-color: var(--markdown-styles-quote-background-color);
