@@ -119,7 +119,7 @@ pacman::p_load(tidyverse, janitor, sidrar, rbcb)
 
 Criaremos uma variável de data inicial da série, `initial_date` e lhe atribuíremos um valor arbitrário, e após isso, com o uso da função `get_sidra()` do pacote `sidrar`, iremos obter a série histórica do IPCA:
 
-~~~
+~~~r
 #initial date input
 initial_date <- "2011-01-01"
 
