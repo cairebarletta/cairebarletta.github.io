@@ -705,6 +705,6 @@ ipca_groups_contribution <- inflation_data$ipca_groups_contribution_monthly
 ipca_classifications <- inflation_data$ipca_classifications_monthly
 ~~~
 
-Desse modo, chegamos ao fim dessa publicação, atingindo assim o objetivo de criar uma função que puxe diversos dados (tratados) referentes ao IPCA. Deve-se salientar que os passos efetuados fora dos colchetes de `function() {}`, foram apenas para fins de didátia, explicação e visualização, sendo que os resultados finais a serem considerados são as funções criadas.
+Desse modo, chegamos ao fim dessa publicação, atingindo assim o objetivo de criar uma função que puxe diversos dados (tratados) referentes ao IPCA. Deve-se salientar que os passos efetuados fora dos colchetes de `function() {}`, foram apenas para fins de didática, explicação e visualização, sendo que os resultados finais a serem considerados são as funções criadas.
 
 Para as próximas publicações, tenho planejado usar os dados coletados aqui para explorar em como criar uma função para calcular rentabilidades (acumuladas desde determinado período, em 12 meses, YTD etc.) de forma agregada, além de também criar gráficos extremamente detalhados, com o auxílio de alguns pacotes, como o `ggplot2`...até lá! 
