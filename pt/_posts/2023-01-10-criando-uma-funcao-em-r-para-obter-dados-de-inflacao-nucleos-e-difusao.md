@@ -41,17 +41,15 @@ date: 2023-01-10
 
 <!-- outline-start -->
 
-Nessa publicação irei apresentar ao leitor alguns conceitos macroeconômicos sobre inflação, núcleos de inflação e índice de difusão. Posteriormente, serão apresentadas formas de obter dados sobre esses conceitos diretamente pelo `R`, onde serão criadas funções contemplando a coleta e tratamento dos mesmos, facilitando a vida daqueles que procuram ter uma recorrência na sua obtenção.
+Nessa publicação será apresentado ao leitor alguns conceitos macroeconômicos sobre inflação, núcleos de inflação e índice de difusão. Posteriormente, serão apresentadas formas de obter dados sobre esses conceitos diretamente pelo `R`, onde serão criadas funções contemplando a coleta e tratamento dos mesmos, facilitando a vida daqueles que procuram ter uma recorrência na sua obtenção.
 
 <!-- outline-end -->
 
 ## Introdução
 
-O que é inflação? Pela definição do IBGE, inflação é como se denomina o aumento dos preços de produtos e serviços. Já nas aulas de economia, aprende-se que inflação é o nome dado para o aumento **generalizado** e **persistente** dos preços de produtos e serviços. A princípio não parece haver muita diferença, não é mesmo? Porém, exploraremos esses pontos ao longo dessa publicação e veremos o motivo de serem importantes.
+O que é inflação? Pela definição do IBGE, inflação é como se denomina o aumento dos preços de produtos e serviços. Já nas aulas de economia, aprende-se que inflação é o nome dado para o aumento **generalizado** e **persistente** dos preços de produtos e serviços. A princípio não parece haver muita diferença, não é mesmo? Entretanto há, e com isso, exploraremos esses pontos ao longo dessa publicaçã.
 
-Por outro lado, uma taxa de inflação mede a magnitude ao qual os preços de determinada cesta de bens e serviços variam de um período para outro.
-
-Para o caso brasileiro, existem diversos índices de inflação, que acompanham diferentes itens, com diferentes proporções, como o IPC, o INPC, o IGP-M, o IPCA – sendo que na publicação de hoje, focaremos nesse último.
+Por outro lado, uma taxa de inflação mede a magnitude ao qual os preços de determinada cesta de bens e serviços variam de um período para outro. Para o caso brasileiro, existem diversos índices de inflação, que acompanham diferentes itens, com diferentes proporções, como o IPC, o INPC, o IGP-M, o IPCA – sendo que na publicação de hoje, focaremos nesse último.
 
 ## O Índice de Preços ao Consumidor Amplo (IPCA)
 
@@ -707,6 +705,6 @@ ipca_groups_contribution <- inflation_data$ipca_groups_contribution_monthly
 ipca_classifications <- inflation_data$ipca_classifications_monthly
 ~~~
 
-Portanto, chega-se ao fim dessa publicação, atingindo nosso objetivo de criar uma função que puxe diversos dados (tratados) referentes ao IPCA. Salienta-se que os passos efetuados fora dos colchetes de `function() {}`, foram apenas para fins de explicação e visualização, sendo que os resultados finais a serem considerados são as funções criadas.
+Desse modo, chegamos ao fim dessa publicação, atingindo assim o objetivo de criar uma função que puxe diversos dados (tratados) referentes ao IPCA. Deve-se salientar que os passos efetuados fora dos colchetes de `function() {}`, foram apenas para fins de didátia, explicação e visualização, sendo que os resultados finais a serem considerados são as funções criadas.
 
-Para as próximas publicações, exploraremos como criar uma função para calcular rentabilidades (acumuladas desde determinado período, em 12 meses, YTD etc.) de forma agregada; e também a criação de gráficos extremamente detalhistas, com o uso do pacote `ggplot2`...até lá! 
+Para as próximas publicações, tenho planejado usar os dados coletados aqui para explorar em como criar uma função para calcular rentabilidades (acumuladas desde determinado período, em 12 meses, YTD etc.) de forma agregada, além de também criar gráficos extremamente detalhados, com o auxílio de alguns pacotes, como o `ggplot2`...até lá! 
