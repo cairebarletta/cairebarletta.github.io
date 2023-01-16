@@ -77,11 +77,11 @@ Quanto maior for o resultado da Duration Modificada, mais sensível é o título
 
 ## Criando uma função em R para calcular ambas as Durations
 
-Após uma breve introdução sobre o que se refere Duration de Macaulay e Duration Modificada, vamos ao objetivo principal deste artigo, que é a elaboração de um código em `R` que retornará como output as Durations de determinado título de renda fixa, dado um fluxo de caixa (com amortizações e cupons) e uma taxa de juros de interesse.
+Após uma breve introdução sobre o que se refere Duration de Macaulay e Duration Modificada, vamos ao objetivo principal deste artigo, que é a elaboração de um código em `R` que retornará como `output` as Durations de determinado título de renda fixa, dado um fluxo de caixa (com amortizações e cupons) e uma taxa de juros de interesse.
 
 Primeiramente, devemos carregar os pacotes que iremos utilizar na elaboração do código, onde trabalharemos com o universo de pacotes `tidyverse`, que conta com uma gama de pacotes com funções poderosas no tratamento de dados; e com o pacote `bizdays`, com diversas funções facilitadoras no tratamento de datas no padrão de dias úteis. Poderíamos utilizar `library(tidyverse)` e `library(bizdays)` para carregar os pacotes, mas incorreríamos no risco desses pacotes ainda não estarem instalados em sua máquina, precisando assim de um passo anterior: `install.packages("tidyverse")` e `install.packages("bizdays")`.
 
-Para contornar essa questão, utilizaremos o pacote `pacman` e com uma simples condição lógica, de forma agregada (ao invés de um por um, como seria se fizéssemos o passo anterior), checaremos se os pacotes estão instalados – caso estiverem, os carregaremos, caso contrário, os instalaremos e depois, os carregamos, como segue:
+Para contornar essa questão, utilizaremos o pacote `pacman` e com uma simples condição lógica, de forma agregada (ao invés de um por um, como seria se fizéssemos o passo anterior), checaremos se os pacotes estão instalados – caso estiverem, os carregaremos; caso contrário, os instalaremos e depois, os carregaremos, como segue:
 
 ~~~r
 #loading packages used
@@ -184,7 +184,7 @@ Isto posto, observamos uma Duration de Macaulay de 3,06 anos em contraposição 
 
 Por fim, criamos uma função, em que ela recebe como input: um `yield`; um `cashflow` no formato `.xlsx`, conforme foi visto e uma `initial_date`, que caso não for informada uma data, considerará a data do dia em que o script for rodado (`Sys.Date()`).
 
-Como output, a função retorna uma lista com três objetos: `calculus_table`, que é a tabela com as informações de `date`, `future_value`, `event`, `biz_days`, `time`, `presente_value` e `duration_n`; `macaulay_duration`, que é a Duration de Macaulay e `modified_duration` que é a Duration Modificada.
+Como `output`, a função retorna uma lista com três objetos: `calculus_table`, que é a tabela com as informações de `date`, `future_value`, `event`, `biz_days`, `time`, `presente_value` e `duration_n`; `macaulay_duration`, que é a Duration de Macaulay e `modified_duration` que é a Duration Modificada.
 
 ~~~r
 #duration function
@@ -214,7 +214,7 @@ duration <- function(yield, cashflow, initial_date = Sys.Date()) {
 }
 ~~~
 
-Os outputs podem ser acessados ao utilizar-se do operador `$`, como em:
+Os `outputs` podem ser acessados ao utilizar-se do operador `$`, como em:
 - `duration(yield, cashflow_example)$calculus_table`, 
 - `duration(yield, cashflow_example)$macaulay_duration`, ou 
 - `duration(yield, cashflow_example)$modified_duration`.
