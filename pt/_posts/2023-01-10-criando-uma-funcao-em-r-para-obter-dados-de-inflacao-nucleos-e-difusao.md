@@ -332,6 +332,8 @@ Com a função `column_to_rownames()` e a função `rownames_to_column()` do pac
 
 ![Transformação Coluna <> Índice](:tabela_contribuicao_grupos_ipca_coluna_para_indice_R.PNG){:data-align="center"}
 
+### Criando a função auxiliar `get_clean_sidra_data()`
+
 Dessa maneira, foram abordados todos os dados que iremos puxar do SIDRA. Sendo assim, podemos já consolidar uma **função auxiliar**, a `get_clean_sidra_data()`, que usaremos dentro da nossa **função final**, ao final dessa publicação.
 
 ~~~r
@@ -510,6 +512,8 @@ diffusion_index <- rbcb::get_series(
   )
 ~~~
 
+### Criando a função auxiliar `get_clean_rbcb_data()`
+
 Com isso, chegamos ao fim da captura de todos os dados de interesse referentes ao IPCA, logo, podemos criar a nossa segunda **função auxiliar**, a `get_clean_rbcb_data()`:
 
 ~~~r
@@ -545,7 +549,9 @@ get_clean_rbcb_data <- function(series, initial_date) {
 
 Onde, ela recebe dois argumentos, a(s) série(s) em `series` e a data inicial em `initial_date`. Nela é feita uma condição lógica, em que caso o tamanho do objeto dado como argumento para a série seja igual a 1 (`if(length(series) == 1) {}`), será executado o procedimento conforme visto em `diffusion_index`, e caso contrário (`else {}`), como visto em `ipca_classifications`.
 
-Agora, partimos para a criação da **função final**, na qual denominaremos ela de `get_ipca_data`, que tratará de puxar todos os dados que foram abordados, de uma vez só, tendo como argumento apenas a data inicial, `initial_date`:
+### Criando a função final `get_ipca_data()`
+
+Agora, partimos para a criação da **função final**, na qual denominaremos ela de `get_ipca_data()`, que tratará de puxar todos os dados que foram abordados, de uma vez só, tendo como argumento apenas a data inicial, `initial_date`:
 
 ~~~r
 #function to pull all IPCA data
