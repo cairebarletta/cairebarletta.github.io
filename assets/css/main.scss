@@ -5,7 +5,26 @@
  *  Licensed under MIT
 */
 
-$content-width: 100%;
+:root {
+  /* with profile img, 2.3rem, otherwise 3rem suits. */
+  --side-nav-brand-text-font-size: 2.3rem;
+  --side-nav-width: 100%;
+  --side-nav-width-def: 100%;
+  --side-nav-side-margin: 20px;
+  --top-nav-height: 0px;
+  --top-nav-height-def: 52px;
+  /* min:5px, nominal:3%, max:25px */
+  --text-spacing: clamp(5px, calc((100vw / 100) * 3 ), 25px);
+  /* min:5px, nominal:3.5%, max:40px */
+  --main-container-margin: clamp(5px, calc((100vw / 100) * 3.5 ), 40px);
+  /* any page bottom padding */
+  --main-container-padding-bottom: calc(var(--main-container-margin) / 2);
+  --main-container-width-limit: 100%;
+  --main-container-max-width: 100%;
+  /* space between containers */
+  --multipurpose-container-margin-bottom: 20px;
+  --footer-height: 27px;
+}
 
 {% if site.data.conf.main.google_font_load_in_head == nil or site.data.conf.main.google_font_load_in_head == false %}
   @import url({{ site.data.conf.main.google_font_style_url }});
