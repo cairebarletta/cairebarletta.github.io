@@ -12,10 +12,8 @@
   /* table of contents box top */
   top: 600px;
   left: 10px;
-  max-width: 100%;
+  max-width: calc(var(--side-nav-width-def) + var(--main-container-margin));
 }
-
-/* calc(var(--side-nav-width-def) + var(--main-container-margin))
 
 #toc-container .panel.panel-default {
   margin-bottom: 0;
