@@ -37,8 +37,6 @@ date: 2022-12-26
 #search_engine_exclude: true
 # to disable this page, simply set published: false or delete this file
 #published: false
-
-full-width: true
 ---
 
 <!-- outline-start -->
